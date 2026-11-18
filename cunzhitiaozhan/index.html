@@ -1,0 +1,1427 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>寸止挑战 - 专注力视频社区 - 控制节奏 赢得自我</title>
+<meta name="description" content="寸止挑战官方网站，专注节奏控制与自控力训练的原创视频社区，汇聚专业创作者与挑战爱好者，共建高品质内容生态。">
+<style>
+:root{
+  --bg:#0e1116;
+  --bg2:#151a22;
+  --card:#1b222c;
+  --line:#2a3340;
+  --txt:#e8edf4;
+  --sub:#9aa7b8;
+  --acc:#3ef2a3;
+  --acc2:#59c7ff;
+  --warm:#ffb454;
+  --red:#ff5a6a;
+  --radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--txt);
+  line-height:1.75;
+  font-size:16px;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input{font-family:inherit}
+
+/* 公告条 */
+.announce{
+  background:linear-gradient(90deg,#1f6b4d,#1b4a63 60%,#3a2a5e);
+  color:#eaf7f1;
+  font-size:13.5px;
+  overflow:hidden;
+  position:relative;
+}
+.announce-inner{
+  max-width:1220px;margin:0 auto;padding:8px 20px;
+  display:flex;align-items:center;gap:10px;
+}
+.announce .dot{width:8px;height:8px;border-radius:50%;background:var(--acc);flex:0 0 auto;box-shadow:0 0 10px var(--acc);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.announce-track{flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.announce-track b{color:#fff;font-weight:600}
+.announce a{color:var(--acc);font-weight:600;white-space:nowrap}
+
+/* 吸顶头 */
+.sticky-head{position:sticky;top:0;z-index:80;background:rgba(14,17,22,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+header.site{
+  max-width:1220px;margin:0 auto;padding:0 20px;
+  height:68px;display:flex;align-items:center;gap:26px;
+}
+.logo{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.logo-mark{
+  width:38px;height:38px;border-radius:11px;
+  background:conic-gradient(from 210deg,var(--acc),var(--acc2),#8a7bff,var(--acc));
+  display:grid;place-items:center;font-weight:800;color:#07120d;font-size:17px;letter-spacing:-1px;
+}
+.logo-txt{display:flex;flex-direction:column;line-height:1.15}
+.logo-txt strong{font-size:17px;letter-spacing:1px}
+.logo-txt span{font-size:10.5px;color:var(--sub);letter-spacing:2px}
+nav.main{display:flex;gap:4px;flex:1}
+nav.main a{
+  padding:8px 13px;border-radius:9px;font-size:14.5px;color:var(--sub);
+  transition:.2s;white-space:nowrap;
+}
+nav.main a:hover,nav.main a.active{color:var(--txt);background:var(--card)}
+.head-tools{display:flex;align-items:center;gap:10px}
+.search-box{
+  display:flex;align-items:center;gap:7px;
+  background:var(--card);border:1px solid var(--line);border-radius:11px;
+  padding:6px 11px;width:210px;transition:.25s;
+}
+.search-box:focus-within{border-color:var(--acc);box-shadow:0 0 0 3px rgba(62,242,163,.12)}
+.search-box svg{flex:0 0 auto;opacity:.6}
+.search-box input{background:none;border:none;outline:none;color:var(--txt);font-size:13.5px;width:100%}
+.search-box input::placeholder{color:#5f6d80}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  padding:9px 18px;border-radius:11px;font-size:14px;font-weight:600;
+  transition:.22s;white-space:nowrap;
+}
+.btn-primary{background:var(--acc);color:#06130d}
+.btn-primary:hover{background:#66ffbb;transform:translateY(-1px)}
+.btn-ghost{border:1px solid var(--line);color:var(--txt)}
+.btn-ghost:hover{border-color:var(--acc);color:var(--acc)}
+.burger{display:none;width:40px;height:40px;border-radius:10px;border:1px solid var(--line);place-items:center}
+.burger span{display:block;width:18px;height:2px;background:var(--txt);border-radius:2px;position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--txt);border-radius:2px;transition:.25s}
+.burger span::before{top:-6px}
+.burger span::after{top:6px}
+
+/* 通用 */
+.wrap{max-width:1220px;margin:0 auto;padding:0 20px}
+section{scroll-margin-top:120px}
+.sec-head{margin-bottom:34px}
+.sec-kicker{font-size:12.5px;letter-spacing:2.5px;color:var(--acc);font-weight:700;margin-bottom:10px}
+.sec-head h2{font-size:clamp(23px,3.2vw,32px);letter-spacing:.5px;line-height:1.35}
+.sec-head p{color:var(--sub);font-size:14.5px;margin-top:10px;max-width:640px}
+.sec-pad{padding:78px 0}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+
+/* 首屏 */
+.hero{position:relative;padding:64px 0 70px;overflow:hidden}
+.hero-glow{position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(620px 380px at 8% 10%,rgba(62,242,163,.13),transparent 70%),
+    radial-gradient(560px 400px at 92% 24%,rgba(89,199,255,.12),transparent 72%),
+    radial-gradient(400px 300px at 50% 110%,rgba(138,123,255,.10),transparent 70%);
+}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:52px;align-items:center}
+.badge-row{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:22px}
+.badge{
+  font-size:12px;padding:5px 12px;border-radius:999px;
+  border:1px solid var(--line);color:var(--sub);background:rgba(27,34,44,.6);
+}
+.badge.hot{color:var(--acc);border-color:rgba(62,242,163,.4);background:rgba(62,242,163,.08)}
+.hero h1{font-size:clamp(38px,6vw,64px);line-height:1.08;letter-spacing:1px;font-weight:800}
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(100deg,var(--acc),var(--acc2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-lead{font-size:16.5px;color:#c3cddb;margin:22px 0 14px;max-width:560px}
+.hero-intro{font-size:14.2px;color:var(--sub);max-width:560px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:13px;margin:28px 0 30px}
+.hero-stats{display:flex;gap:34px;flex-wrap:wrap}
+.hero-stats .st b{display:block;font-size:27px;font-weight:800;color:var(--acc);letter-spacing:.5px}
+.hero-stats .st span{font-size:12.5px;color:var(--sub);letter-spacing:1px}
+
+.hero-visual{position:relative;aspect-ratio:4/3.4;border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 70px -30px rgba(0,0,0,.9)}
+.hero-visual img{width:100%;height:100%;object-fit:cover}
+.hero-float{
+  position:absolute;left:16px;right:16px;bottom:16px;
+  background:rgba(14,17,22,.82);backdrop-filter:blur(10px);
+  border:1px solid var(--line);border-radius:14px;padding:13px 15px;display:flex;align-items:center;gap:12px;
+}
+.hero-float .play-mini{width:36px;height:36px;border-radius:10px;background:var(--acc);color:#06130d;display:grid;place-items:center;flex:0 0 auto}
+.hero-float .hf-t{font-size:13.5px;font-weight:600}
+.hero-float .hf-s{font-size:11.5px;color:var(--sub)}
+
+/* 视频卡片通 */
+.vcard{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;transition:.28s;display:flex;flex-direction:column;position:relative;
+}
+.vcard:hover{transform:translateY(-5px);border-color:rgba(62,242,163,.5);box-shadow:0 22px 44px -24px rgba(0,0,0,.95)}
+.cover{position:relative;aspect-ratio:16/9;overflow:hidden;background:#0b0f14}
+.cover img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.vcard:hover .cover img{transform:scale(1.05)}
+.cover .tag{
+  position:absolute;top:10px;left:10px;font-size:11px;font-weight:700;
+  padding:4px 9px;border-radius:7px;background:rgba(14,17,22,.8);color:var(--acc);
+  border:1px solid rgba(62,242,163,.35);backdrop-filter:blur(6px);
+}
+.cover .dur{
+  position:absolute;bottom:10px;right:10px;font-size:11px;padding:2px 8px;border-radius:6px;
+  background:rgba(0,0,0,.7);color:#dfe8f2;font-variant-numeric:tabular-nums;
+}
+.cover .tri{
+  position:absolute;inset:0;margin:auto;width:52px;height:52px;border-radius:50%;
+  background:rgba(14,17,22,.62);border:1px solid rgba(255,255,255,.28);
+  display:grid;place-items:center;opacity:0;transition:.3s;backdrop-filter:blur(4px);
+}
+.vcard:hover .cover .tri{opacity:1}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.55));pointer-events:none}
+.vbody{padding:15px 16px 14px;display:flex;flex-direction:column;gap:9px;flex:1}
+.vbody h3{font-size:15.5px;line-height:1.5;font-weight:700;letter-spacing:.2px}
+.vbody p{font-size:12.8px;color:var(--sub);line-height:1.65;flex:1}
+.vmeta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+.avatar{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:800;color:#06130d;flex:0 0 auto}
+.vfoot{display:flex;align-items:center;gap:14px;font-size:12.5px;color:var(--sub);border-top:1px solid var(--line);padding-top:11px;margin-top:2px}
+.act{display:inline-flex;align-items:center;gap:5px;transition:.2s;padding:2px 4px;border-radius:6px}
+.act:hover{color:var(--acc);background:rgba(62,242,163,.08)}
+.act.on{color:var(--acc)}
+.act.on svg{fill:currentColor}
+
+/* 焦点区 */
+.focus-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:22px}
+.focus-main .cover{aspect-ratio:16/9.6}
+.focus-main .vbody h3{font-size:21px}
+.focus-side{display:grid;gap:14px;align-content:start}
+.fitem{
+  display:grid;grid-template-columns:112px 1fr;gap:13px;background:var(--card);
+  border:1px solid var(--line);border-radius:13px;padding:11px;transition:.25s;
+}
+.fitem:hover{border-color:rgba(89,199,255,.5);transform:translateX(4px)}
+.fitem .cover{border-radius:9px;aspect-ratio:16/10}
+.fitem .cover .tri{width:34px;height:34px}
+.fitem h4{font-size:13.8px;line-height:1.5;font-weight:600}
+.fitem .fm{font-size:11.5px;color:var(--sub);margin-top:6px}
+
+/* 标签筛选 */
+.filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:28px}
+.chip{
+  padding:6px 15px;border-radius:999px;font-size:13px;color:var(--sub);
+  border:1px solid var(--line);background:var(--card);transition:.22s;
+}
+.chip:hover{color:var(--txt);border-color:#3d4a5c}
+.chip.active{background:var(--acc);color:#06130d;border-color:var(--acc);font-weight:700}
+
+/* 视频流网格 */
+.stream{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.stream.two{grid-template-columns:repeat(2,1fr)}
+.stream .vcard.big .cover{aspect-ratio:16/8.4}
+.stream .vcard.big .vbody h3{font-size:18px}
+
+/* 专题 */
+.topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.topic{
+  position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);
+  min-height:230px;display:flex;flex-direction:column;justify-content:flex-end;padding:20px;transition:.3s;
+}
+.topic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:.5s}
+.topic::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,19,.12),rgba(10,14,19,.94));z-index:1}
+.topic:hover img{transform:scale(1.06)}
+.topic>*{position:relative;z-index:2}
+.topic .tp-tag{font-size:11px;color:var(--acc2);letter-spacing:2px;font-weight:700;margin-bottom:8px}
+.topic h3{font-size:17px;line-height:1.45;margin-bottom:7px}
+.topic p{font-size:12.5px;color:#b9c4d3;line-height:1.6}
+.topic .tp-foot{display:flex;justify-content:space-between;align-items:center;margin-top:13px;font-size:11.5px;color:var(--sub);border-top:1px solid rgba(255,255,255,.12);padding-top:11px}
+.stat-live{color:var(--acc);font-weight:700}
+
+/* 创作者 */
+.creators{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.creator{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;transition:.28s;
+}
+.creator:hover{border-color:rgba(138,123,255,.55);transform:translateY(-4px)}
+.cr-top{display:flex;align-items:center;gap:13px;margin-bottom:14px}
+.cr-ava{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;font-size:19px;font-weight:800;color:#06130d;flex:0 0 auto}
+.cr-top h3{font-size:16px}
+.cr-top .cr-role{font-size:11.5px;color:var(--acc);letter-spacing:.5px}
+.creator p{font-size:12.8px;color:var(--sub);line-height:1.7;margin-bottom:14px;min-height:66px}
+.cr-stats{display:flex;gap:18px;border-top:1px solid var(--line);padding-top:13px;font-size:12px;color:var(--sub)}
+.cr-stats b{color:var(--txt);font-size:14.5px;display:block}
+.cr-more{margin-top:14px;display:flex;gap:9px}
+.cr-more .btn{flex:1;padding:7px 0;font-size:12.5px}
+
+/* 排行 */
+.rank-wrap{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.rank{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:6px 20px 14px}
+.rank h3{font-size:15px;padding:16px 0 12px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:9px}
+.rank h3 .rk-dot{width:7px;height:7px;border-radius:50%;background:var(--red)}
+.rank ol{list-style:none}
+.rank li{display:flex;align-items:center;gap:13px;padding:12px 0;border-bottom:1px dashed rgba(42,51,64,.85);font-size:13.5px}
+.rank li:last-child{border-bottom:none}
+.rank .no{font-size:14px;font-weight:800;width:22px;color:var(--sub);font-variant-numeric:tabular-nums}
+.rank li:nth-child(1) .no{color:var(--warm)}
+.rank li:nth-child(2) .no{color:var(--acc2)}
+.rank li:nth-child(3) .no{color:var(--acc)}
+.rank .rn{flex:1;line-height:1.45}
+.rank .rv{font-size:11.5px;color:var(--sub)}
+
+/* 随笔 */
+.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.note{border-left:2px solid var(--acc);padding:4px 0 4px 18px;background:linear-gradient(90deg,rgba(62,242,163,.05),transparent);border-radius:0 12px 12px 0}
+.note .nt{font-size:11.5px;color:var(--acc2);letter-spacing:1.5px;margin-bottom:8px}
+.note h3{font-size:15.5px;margin-bottom:9px;line-height:1.5}
+.note p{font-size:12.8px;color:var(--sub);line-height:1.75}
+
+/* 评价 */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.review{
+  background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:18px;
+  position:relative;transition:.25s;
+}
+.review:hover{border-color:rgba(89,199,255,.42)}
+.review::before{content:"“";position:absolute;top:2px;right:16px;font-size:52px;color:rgba(62,242,163,.16);font-family:Georgia,serif;line-height:1}
+.review p{font-size:13.2px;line-height:1.8;color:#cad4e1;margin-bottom:14px}
+.rv-user{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--sub)}
+.rv-user b{color:var(--txt);font-size:12.5px;display:block}
+.stars{color:var(--warm);font-size:11.5px;letter-spacing:1px}
+
+/* 故事理念 */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.about-visual{border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:0 26px 60px -34px #000}
+.about-visual img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.about-txt h2{font-size:clamp(22px,3vw,30px);line-height:1.4;margin-bottom:18px}
+.about-txt p{font-size:14px;color:var(--sub);margin-bottom:13px;line-height:1.85}
+.about-points{display:grid;gap:12px;margin-top:22px}
+.apoint{display:flex;gap:12px;align-items:flex-start;font-size:13.2px}
+.apoint .ic{width:26px;height:26px;border-radius:8px;background:rgba(62,242,163,.12);color:var(--acc);display:grid;place-items:center;flex:0 0 auto;font-size:13px;font-weight:800}
+.apoint b{color:var(--txt)}
+
+/* 企业动态 */
+.news{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.news-item{display:flex;gap:16px;padding:16px;background:var(--card);border:1px solid var(--line);border-radius:13px;transition:.24s}
+.news-item:hover{border-color:rgba(255,180,84,.5);transform:translateX(3px)}
+.news-date{flex:0 0 62px;text-align:center;border-right:1px solid var(--line);padding-right:14px}
+.news-date b{display:block;font-size:20px;color:var(--warm);line-height:1.1;font-weight:800}
+.news-date span{font-size:11px;color:var(--sub)}
+.news-item h3{font-size:14px;margin-bottom:5px;line-height:1.5}
+.news-item p{font-size:12.3px;color:var(--sub);line-height:1.6}
+
+/* 合作 */
+.partners{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.partner{
+  height:72px;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;
+  font-size:13px;font-weight:700;letter-spacing:.5px;color:var(--sub);background:var(--bg2);transition:.25s;
+}
+.partner:hover{color:var(--acc);border-color:rgba(62,242,163,.45);background:rgba(62,242,163,.05)}
+
+/* FAQ */
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+details{
+  background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:.2s;
+}
+details[open]{border-color:rgba(62,242,163,.45)}
+summary{
+  padding:15px 18px;font-size:14px;font-weight:600;cursor:pointer;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--acc);font-size:19px;font-weight:700;transition:.25s;line-height:1}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 18px 16px;font-size:13px;color:var(--sub);line-height:1.8}
+
+/* 联系 */
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:start}
+.contact-card{background:linear-gradient(145deg,#1b2c26,#181f2b);border:1px solid var(--line);border-radius:20px;padding:30px}
+.contact-card h3{font-size:19px;margin-bottom:10px}
+.contact-card p{font-size:13px;color:var(--sub);margin-bottom:20px;line-height:1.75}
+.contact-rows{display:grid;gap:13px}
+.crow{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13.2px;border-bottom:1px dashed var(--line);padding-bottom:12px}
+.crow span{color:var(--sub)}
+.crow b{color:var(--txt);font-weight:600}
+.form-side{display:grid;gap:12px}
+.form-side input,.form-side textarea{
+  background:var(--bg2);border:1px solid var(--line);border-radius:11px;padding:12px 14px;color:var(--txt);
+  font-size:13.5px;outline:none;transition:.2s;resize:vertical;
+}
+.form-side input:focus,.form-side textarea:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(62,242,163,.1)}
+.form-side input::placeholder,.form-side textarea::placeholder{color:#5f6d80}
+
+/* 页脚 */
+footer{border-top:1px solid var(--line);background:#0a0d12;padding:52px 0 28px;margin-top:78px}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:34px;margin-bottom:38px}
+.foot-brand p{font-size:12.8px;color:var(--sub);margin-top:14px;line-height:1.8;max-width:320px}
+.fcol h4{font-size:13px;letter-spacing:1.5px;color:var(--txt);margin-bottom:14px}
+.fcol a{display:block;font-size:12.8px;color:var(--sub);margin-bottom:9px;transition:.2s}
+.fcol a:hover{color:var(--acc)}
+.foot-bottom{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:#65717f}
+.foot-bottom a{color:#65717f}
+.foot-bottom a:hover{color:var(--acc)}
+
+/* 回顶 */
+#toTop{
+  position:fixed;right:22px;bottom:24px;width:44px;height:44px;border-radius:13px;
+  background:var(--acc);color:#06130d;display:grid;place-items:center;z-index:90;
+  opacity:0;transform:translateY(14px);pointer-events:none;transition:.3s;box-shadow:0 12px 28px -10px rgba(62,242,163,.6);
+}
+#toTop.show{opacity:1;transform:none;pointer-events:auto}
+
+/* Toast */
+#toast{
+  position:fixed;left:50%;bottom:34px;transform:translate(-50%,26px);
+  background:#e9f7f1;color:#0a1410;padding:10px 22px;border-radius:11px;font-size:13.5px;font-weight:600;
+  opacity:0;pointer-events:none;transition:.3s;z-index:120;box-shadow:0 16px 40px -12px rgba(0,0,0,.7)
+}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* 模态 */
+.modal-mask{
+  position:fixed;inset:0;background:rgba(5,8,12,.78);backdrop-filter:blur(6px);
+  z-index:150;display:none;place-items:center;padding:20px;
+}
+.modal-mask.show{display:grid}
+.modal{
+  width:100%;max-width:520px;background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:26px;position:relative;max-height:86vh;overflow:auto;
+}
+.modal h3{font-size:18px;margin-bottom:6px}
+.modal .m-sub{font-size:12.5px;color:var(--sub);margin-bottom:18px}
+.modal-close{position:absolute;top:14px;right:16px;width:32px;height:32px;border-radius:9px;display:grid;place-items:center;color:var(--sub);font-size:19px;transition:.2s}
+.modal-close:hover{background:var(--bg2);color:var(--txt)}
+.share-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:6px}
+.share-row button{
+  border:1px solid var(--line);border-radius:11px;padding:14px 6px;font-size:12px;transition:.2s;display:grid;gap:8px;place-items:center;background:var(--bg2)
+}
+.share-row button:hover{border-color:var(--acc);color:var(--acc)}
+.share-row .si{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:rgba(62,242,163,.14);color:var(--acc);font-weight:800;font-size:13px}
+.report-opts{display:grid;gap:8px;margin:4px 0 16px}
+.report-opts label{display:flex;align-items:center;gap:10px;font-size:13.5px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;transition:.2s}
+.report-opts label:hover{border-color:rgba(62,242,163,.5)}
+.report-opts input{accent-color:var(--acc)}
+
+@media(max-width:1000px){
+  .hero-grid,.focus-grid,.about-grid,.contact-grid,.rank-wrap{grid-template-columns:1fr}
+  .stream,.stream.two,.topic-grid,.creators,.notes,.reviews,.news,.faq{grid-template-columns:1fr 1fr}
+  .partners{grid-template-columns:repeat(3,1fr)}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  nav.main{display:none}
+  .burger{display:grid}
+  .head-tools .search-box{display:none}
+  .hero-visual{order:-1;max-width:560px;width:100%}
+}
+@media(max-width:640px){
+  .stream,.stream.two,.topic-grid,.creators,.notes,.reviews,.news,.faq,.rank-wrap{grid-template-columns:1fr}
+  .partners{grid-template-columns:repeat(2,1fr)}
+  .foot-grid{grid-template-columns:1fr}
+  .hero{padding:38px 0 50px}
+  .sec-pad{padding:54px 0}
+  .hero-stats{gap:22px}
+  .focus-side{gap:12px}
+  .announce-inner{font-size:12.5px}
+  .logo-txt span{display:none}
+  .hero-actions .btn{flex:1}
+}
+/* 移动导航展开层 */
+.mobile-nav{
+  display:none;position:fixed;left:0;right:0;top:0;bottom:0;z-index:79;
+  background:rgba(9,12,17,.97);backdrop-filter:blur(8px);padding:140px 24px 40px;
+  flex-direction:column;gap:6px;
+}
+.mobile-nav.show{display:flex}
+.mobile-nav a{padding:14px 6px;font-size:16px;border-bottom:1px solid var(--line);color:var(--txt)}
+.mobile-nav .m-search{display:flex;gap:8px;margin-bottom:14px}
+.mobile-nav .m-search input{flex:1;background:var(--card);border:1px solid var(--line);border-radius:11px;padding:11px 14px;color:var(--txt);font-size:14px;outline:none}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 公告条 + 页头吸顶 -->
+<div class="sticky-head">
+  <div class="announce">
+    <div class="announce-inner">
+      <span class="dot"></span>
+      <div class="announce-track">
+        <b>最新：</b>「寸止挑战·第12季」节奏控制赛开启报名 · 新增《三十秒呼吸法》完整教程 · 创作者激励计划二期上线 · 本周话题 #我的寸止日志 投稿量突破 2,400 条
+      </div>
+      <a href="#news">查看更新 →</a>
+    </div>
+  </div>
+  <header class="site">
+    <a class="logo" href="#top">
+      <span class="logo-mark">寸</span>
+      <span class="logo-txt"><strong>寸止挑战</strong><span>CUNZHI CHALLENGE</span></span>
+    </a>
+    <nav class="main">
+      <a href="#top" class="active">首页</a>
+      <a href="#focus">焦点内容</a>
+      <a href="#stream">挑战视频</a>
+      <a href="#topics">专题企划</a>
+      <a href="#creators">创作者</a>
+      <a href="#about">品牌故事</a>
+      <a href="#faq">帮助</a>
+      <a href="#contact">联系</a>
+    </nav>
+    <div class="head-tools">
+      <div class="search-box">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        <input id="searchInput" type="text" placeholder="搜索挑战 / 创作者 / 专题" aria-label="站内搜索">
+      </div>
+      <button class="btn btn-primary" id="submitBtn">投稿入口</button>
+      <button class="burger" id="burger" aria-label="展开导航"><span></span></button>
+    </div>
+  </header>
+</div>
+
+<div class="mobile-nav" id="mobileNav">
+  <div class="m-search">
+    <input id="mSearch" type="text" placeholder="搜索挑战 / 创作者 / 专题" aria-label="移动端搜索">
+    <button class="btn btn-primary" id="mSearchBtn">搜索</button>
+  </div>
+  <a href="#top">首页</a>
+  <a href="#focus">焦点内容</a>
+  <a href="#stream">挑战视频</a>
+  <a href="#topics">专题企划</a>
+  <a href="#creators">创作者</a>
+  <a href="#rank">热度榜单</a>
+  <a href="#about">品牌故事</a>
+  <a href="#news">企业动态</a>
+  <a href="#faq">帮助中心</a>
+  <a href="#contact">联系我们</a>
+</div>
+
+<!-- 首屏 -->
+<section class="hero" id="top">
+  <div class="hero-glow"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="badge-row">
+        <span class="badge hot">官方网站</span>
+        <span class="badge">原创正版</span>
+        <span class="badge">高清内容</span>
+        <span class="badge">持续运营 5 年</span>
+      </div>
+      <h1>寸止挑战</h1>
+      <p class="hero-lead">在每一秒的克制里，练习专注、节奏与自我对话。这是一个以「寸止挑战」为核心方法的原创视频社区。</p>
+      <p class="hero-intro">作为深耕自控训练与专注力内容的视频品牌，寸止挑战官方网站汇聚专业教练、行为心理学研究者与上千位记录型创作者，围绕节奏控制、呼吸节律、习惯养成与情绪觉察，持续输出可跟练、可复盘、可分享的高品质视频内容。我们相信真正的成长来自对节奏的掌控，而不仅是速度的堆叠。平台坚持原创与正版，用真实记录与陪伴，让每一次「停住」都成为值得信赖的进步。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#stream">开始今日挑战</a>
+        <a class="btn btn-ghost" href="#about">了解品牌理念</a>
+      </div>
+      <div class="hero-stats">
+        <div class="st"><b data-count="1286">0</b><span>原创挑战视频</span></div>
+        <div class="st"><b data-count="642">0</b><span>认证创作者</span></div>
+        <div class="st"><b data-count="93">0</b><span>内容好评率 %</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img alt="寸止挑战品牌主视觉：节拍器与呼吸曲线构成的专注力训练场景" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='680' viewBox='0 0 800 680'><defs><linearGradient id='g1' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%2310251c'/><stop offset='.55' stop-color='%23131d2b'/><stop offset='1' stop-color='%23201a33'/></linearGradient><radialGradient id='g2' cx='.3' cy='.3' r='.7'><stop offset='0' stop-color='%233ef2a3' stop-opacity='.5'/><stop offset='1' stop-color='%233ef2a3' stop-opacity='0'/></radialGradient></defs><rect width='800' height='680' fill='url(%23g1)'/><circle cx='240' cy='200' r='230' fill='url(%23g2)'/><g stroke='%233ef2a3' stroke-opacity='.55' fill='none' stroke-width='2'><path d='M60 520 C 150 520 170 380 250 380 S 350 470 430 470 520 300 610 300 700 400 760 400'/></g><g stroke='%2359c7ff' stroke-opacity='.35' fill='none' stroke-width='1.5' stroke-dasharray='6 8'><path d='M60 560 C 150 560 170 420 250 420 S 350 510 430 510 520 340 610 340 700 440 760 440'/></g><g fill='none' stroke='%23ffffff' stroke-opacity='.13' stroke-width='1'><circle cx='400' cy='330' r='150'/><circle cx='400' cy='330' r='210'/><circle cx='400' cy='330' r='270'/></g><g><rect x='388' y='180' width='24' height='300' rx='12' fill='%233ef2a3' fill-opacity='.9' transform='rotate(18 400 330)'/></g><circle cx='400' cy='330' r='26' fill='%230e1116' stroke='%233ef2a3' stroke-width='3'/><g fill='%23ffffff' fill-opacity='.5'><circle cx='150' cy='120' r='3'/><circle cx='640' cy='90' r='4'/><circle cx='700' cy='560' r='3'/><circle cx='110' cy='600' r='4'/></g><text x='60' y='90' fill='%233ef2a3' font-size='22' font-family='sans-serif' font-weight='700' letter-spacing='6'>FOCUS · PAUSE</text><text x='60' y='126' fill='%23ffffff' fill-opacity='.55' font-size='14' font-family='sans-serif' letter-spacing='3'>寸止挑战 品牌影像 2024</text></svg>">
+      <div class="hero-float">
+        <span class="play-mini">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </span>
+        <div>
+          <div class="hf-t">《三十秒呼吸法》完整跟练版</div>
+          <div class="hf-s">官方发布 · 播放 38.6 万 · 收藏 2.1 万</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- 焦点内容 -->
+<section class="sec-pad" id="focus">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">FEATURED · 焦点内容</div>
+      <h2>本周官方力荐：三组进阶挑战</h2>
+      <p>由品牌内容团队与认证教练共同打磨，覆盖入门到进阶的节奏控制路径，适合不同阶段的练习者跟练与复盘。</p>
+    </div>
+    <div class="focus-grid">
+      <article class="vcard focus-main">
+        <div class="cover">
+          <img alt="焦点视频封面：寸止挑战第12季节奏控制赛先导片，节拍光带穿行画面" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='760' height='430' viewBox='0 0 760 430'><defs><linearGradient id='f1' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%230c1a2e'/><stop offset='.6' stop-color='%23142b3a'/><stop offset='1' stop-color='%231b2d24'/></linearGradient></defs><rect width='760' height='430' fill='url(%23f1)'/><g stroke='%2359c7ff' stroke-opacity='.5' stroke-width='2' fill='none'><path d='M0 300 L120 300 L160 190 L210 350 L260 240 L320 300 L420 300 L460 160 L520 370 L570 220 L640 300 L760 300'/></g><g fill='%233ef2a3'><rect x='90' y='80' width='6' height='80' rx='3'/><rect x='130' y='110' width='6' height='50' rx='3'/><rect x='170' y='60' width='6' height='100' rx='3'/><rect x='210' y='130' width='6' height='30' rx='3'/></g><circle cx='600' cy='120' r='70' fill='none' stroke='%233ef2a3' stroke-opacity='.5' stroke-width='2'/><circle cx='600' cy='120' r='40' fill='%233ef2a3' fill-opacity='.18'/><text x='40' y='390' fill='%23ffffff' fill-opacity='.75' font-size='20' font-family='sans-serif' font-weight='700'>SEASON 12 · 节奏控制赛</text></svg>">
+          <span class="tag">官方企划</span>
+          <span class="dur">12:48</span>
+          <span class="tri"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+        </div>
+        <div class="vbody">
+          <h3>寸止挑战第12季：在第十秒停住的人，才是真正的进步者</h3>
+          <p>本季围绕「节奏控制」展开，邀请行为心理学研究者与职业冥想教练共同设计三阶训练法。从呼吸计数到动作收束，用可量化的方式记录每一次克制，让专注力成为可以练习的能力。</p>
+          <div class="vmeta">
+            <span class="avatar" style="background:linear-gradient(135deg,#3ef2a3,#59c7ff)">寸</span>
+            <span>寸止挑战官方</span><span>·</span><span>4.2 万次收藏</span>
+          </div>
+          <div class="vfoot">
+            <button class="act" data-like><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1zM7 10l4-7a2 2 0 0 1 3 1.6V9h5.2a2 2 0 0 1 2 2.3l-1.3 7A2 2 0 0 1 18 20H7"/></svg><span class="n">3,842</span></button>
+            <button class="act" data-fav><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.6-7-9.5A4 4 0 0 1 12 7a4 4 0 0 1 7 3.5C19 15.4 12 20 12 20z"/></svg>收藏</button>
+            <button class="act" data-share><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.6l6.8-4.2M8.6 13.4l6.8 4.2"/></svg>分享</button>
+          </div>
+        </div>
+      </article>
+      <div class="focus-side">
+        <article class="fitem">
+          <div class="cover">
+            <img alt="焦点视频小卡封面：三十秒呼吸法教程的环形呼吸指示图形" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='200' viewBox='0 0 320 200'><rect width='320' height='200' fill='%23101c18'/><circle cx='160' cy='100' r='64' fill='none' stroke='%233ef2a3' stroke-width='3' stroke-dasharray='18 10'/><circle cx='160' cy='100' r='38' fill='%233ef2a3' fill-opacity='.2'/><text x='160' y='107' text-anchor='middle' fill='%233ef2a3' font-size='26' font-family='sans-serif' font-weight='700'>30s</text></svg>
+            <span class="dur">08:12</span>
+            <span class="tri"><svg width="13" height="13" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+          </div>
+          <div>
+            <h4>《三十秒呼吸法》完整跟练版</h4>
+            <div class="fm">官方发布 · 38.6 万播放</div>
+          </div>
+        </article>
+        <article class="fitem">
+          <div class="cover">
+            <img alt="焦点视频小卡封面：创作者访谈现场，两人对坐的暖色光影" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='200' viewBox='0 0 320 200'><rect width='320' height='200' fill='%23201810'/><circle cx='90' cy='96' r='30' fill='%23ffb454' fill-opacity='.65'/><circle cx='228' cy='96' r='30' fill='%23ff5a6a' fill-opacity='.45'/><rect x='52' y='138' width='76' height='10' rx='5' fill='%23ffb454' fill-opacity='.4'/><rect x='190' y='138' width='76' height='10' rx='5' fill='%23ff5a6a' fill-opacity='.35'/><path d='M120 100 Q160 60 200 100' stroke='%23ffffff' stroke-opacity='.35' stroke-width='2' fill='none'/></svg>
+            <span class="dur">21:05</span>
+            <span class="tri"><svg width="13" height="13" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+          </div>
+          <div>
+            <h4>访谈：克制不是压抑，是更清楚自己要什么</h4>
+            <div class="fm">人物访谈 · 12.4 万播放</div>
+          </div>
+        </article>
+        <article class="fitem">
+          <div class="cover">
+            <img alt="焦点视频小卡封面：夜间城市跑者的霓虹剪影与节奏线条" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='200' viewBox='0 0 320 200'><rect width='320' height='200' fill='%230b1220'/><g stroke='%2359c7ff' stroke-opacity='.55' stroke-width='2'><path d='M0 150 L60 150 L80 110 L110 170 L140 130 L180 150 L240 150 L260 100 L300 160 L320 150'/></g><circle cx='230' cy='66' r='14' fill='%233ef2a3' fill-opacity='.8'/><rect x='20' y='36' width='60' height='8' rx='4' fill='%2359c7ff' fill-opacity='.35'/></svg>
+            <span class="dur">15:30</span>
+            <span class="tri"><svg width="13" height="13" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+          </div>
+          <div>
+            <h4>城市夜间节奏：用 5 公里练习呼吸停顿</h4>
+            <div class="fm">城市探索 · 9.7 万播放</div>
+          </div>
+        </article>
+        <article class="fitem">
+          <div class="cover">
+            <img alt="焦点视频小卡封面：训练日志笔记本与秒表的桌面俯拍" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='200' viewBox='0 0 320 200'><rect width='320' height='200' fill='%23171c16'/><rect x='60' y='46' width='130' height='118' rx='8' fill='%23e8edf4' fill-opacity='.9'/><g stroke='%23171c16' stroke-opacity='.35' stroke-width='3'><path d='M78 76h94M78 96h94M78 116h70M78 136h50'/></g><circle cx='240' cy='120' r='34' fill='none' stroke='%233ef2a3' stroke-width='4'/><path d='M240 120V98' stroke='%233ef2a3' stroke-width='4' stroke-linecap='round'/><path d='M240 120l16 12' stroke='%23ff5a6a' stroke-width='4' stroke-linecap='round'/></svg>
+            <span class="dur">06:44</span>
+            <span class="tri"><svg width="13" height="13" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+          </div>
+          <div>
+            <h4>21 天训练日志模板：把克制写成数据</h4>
+            <div class="fm">实用技巧 · 7.3 万播放</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 视频流 -->
+<section class="sec-pad" id="stream" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">CHALLENGE STREAM · 挑战视频流</div>
+      <h2>社区正在跟练的九个挑战</h2>
+      <p>来自认证创作者与普通用户的真实记录，涵盖呼吸训练、动作收束、情绪留白与日常自律，每一条都带有可复盘的节奏数据。</p>
+    </div>
+    <div class="filters" id="filters">
+      <button class="chip active" data-cat="all">全部</button>
+      <button class="chip" data-cat="beginner">入门跟练</button>
+      <button class="chip" data-cat="advanced">进阶挑战</button>
+      <button class="chip" data-cat="story">真实记录</button>
+      <button class="chip" data-cat="science">原理解读</button>
+      <button class="chip" data-cat="life">生活应用</button>
+    </div>
+    <div class="stream" id="streamGrid">
+      <article class="vcard" data-cat="beginner">
+        <div class="cover">
+          <img alt="视频封面：新手第一课，浅绿背景上的秒针与三档刻度" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='225' viewBox='0 0 400 225'><rect width='400' height='225' fill='%23142019'/><g stroke='%233ef2a3' stroke-opacity='.75' stroke-width='3'><circle cx='200' cy='112' r='66' fill='none'/><path d='M200 112V66' stroke-linecap='round'/></g><g fill='%23ffffff' fill-opacity='.4'><rect x='90' y='196' width='40' height='6' rx='3'/><rect x='146' y='196' width='40' height='6' rx='3'/><rect x='202' y='196' width='40' height='6' rx='3'/><rect x='258' y='196' width='40' height='6' rx='3'/></g></svg>
+          <span class="tag">入门跟练</span><span class="dur">09:20</span>
+        </div>
+        <div class="vbody">
+          <h3>第一次寸止挑战：从 10 秒开始的三档节奏</h3>
+          <p>给完全没接触过的练习者，用三个递进关卡建立身体对「停」的感知，不需要任何器械。</p>
+          <div class="vmeta"><span class="avatar" style="background:var(--acc)">林</span><span>林知节</span><span>·</span><span>18.2 万播放</span></div>
+          <div class="vfoot">
+            <button class="act" data-like><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1zM7 10l4-7a2 2 0 0 1 3 1.6V9h5.2a2 2 0 0 1 2 2.3l-1.3 7A2 2 0 0 1 18 20H7"/></svg><span class="n">1,204</span></button>
+            <button class="act" data-fav><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.6-7-9.5A4 4 0 0 1 12 7a4 4 0 0 1 7 3.5C19 15.4 12 20 12 20z"/></svg>收藏</button>
+            <button class="act" data-share><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.6l6.8-4.2M8.6 13.4l6.8 4.2"/></svg>分享</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="vcard" data-cat="advanced">
+        <div class="cover">
+          <img alt="视频封面：进阶九十秒静止，深蓝渐变上的同心波纹" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='225' viewBox='0 0 400 225'><rect width='400' height='225' fill='%230d1726'/><g fill='none' stroke='%2359c7ff' stroke-width='2'><circle cx='200' cy='112' r='26' stroke-opacity='.95'/><circle cx='200' cy='112' r='52' stroke-opacity='.6'/><circle cx='200' cy='112' r='80' stroke-opacity='.35'/><circle cx='200' cy='112' r='108' stroke-opacity='.18'/></g><rect x='196' y='40' width='8' height='144' rx='4' fill='%233ef2a3' fill-opacity='.55'/></svg>
+          <span class="tag">进阶挑战</span><span class="dur">14:10</span>
+        </div>
+        <div class="vbody">
+          <h3>静止九十秒：不靠意志力的收束训练</h3>
+          <p>用呼吸节律替代硬扛，把「坚持」拆成四个可执行的阶段，附完整节拍提示音。</p>
+          <div class="vmeta"><span class="avatar" style="background:var(--acc2)">陈</span><span>陈一停</span><span>·</span><span>25.6 万播放</span></div>
+          <div class="vfoot">
+            <button class="act" data-like><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1zM7 10l4-7a2 2 0 0 1 3 1.6V9h5.2a2 2 0 0 1 2 2.3l-1.3 7A2 2 0 0 1 18 20H7"/></svg><span class="n">2,876</span></button>
+            <button class="act" data-fav><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.6-7-9.5A4 4 0 0 1 12 7a4 4 0 0 1 7 3.5C19 15.4 12 20 12 20z"/></svg>收藏</button>
+            <button class="act" data-share><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.6l6.8-4.2M8.6 13.4l6.8 4.2"/></svg>分享</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="vcard" data-cat="story">
+        <div class="cover">
+          <img alt="视频封面：真实记录，清晨窗帘缝隙投下的暖色光带" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='225' viewBox='0 0 400 225'><rect width='400' height='225' fill='%23241c14'/><rect x='0' y='0' width='400' height='225' fill='%23ffb454' fill-opacity='.07'/><path d='M40 0 L150 225 L230 225 L110 0z' fill='%23ffb454' fill-opacity='.22'/><path d='M210 0 L320 225 L360 225 L250 0z' fill='%23ffb454' fill-opacity='.12'/><rect x='40' y='180' width='90' height='8' rx='4' fill='%23ffffff' fill-opacity='.25'/></svg>
+          <span class="tag">真实记录</span><span class="dur">11:32</span>
+        </div>
+        <div class="vbody">
+          <h3>焦虑第 47 天：我把挣扎拍成了素材</h3>
+          <p>一个普通上班族连续记录 47 天的练习过程，包括失败、复吸和重新开始的全部细节。</p>
+          <div class="vmeta"><span class="avatar" style="background:var(--warm)">周</span><span>周小满</span><span>·</span><span>31.8 万播放</span></div>
+          <div class="vfoot">
+            <button class="act" data-like><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1zM7 10l4-7a2 2 0 0 1 3 1.6V9h5.2a2 2 0 0 1 2 2.3l-1.3 7A2 2 0 0 1 18 20H7"/></svg><span class="n">4,015</span></button>
+            <button class="act" data-fav><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.6-7-9.5A4 4 0 0 1 12 7a4 4 0 0 1 7 3.5C19 15.4 12 20 12 20z"/></svg>收藏</button>
+            <button class="act" data-share><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.6l6.8-4.2M8.6 13.4l6.8 4.2"/></svg>分享</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="vcard" data-cat="science">
+        <div class="cover">
+          <img alt="视频封面：原理解读，脑区线条示意图与数据节点" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='225' viewBox='0 0 400 225'><rect width='400' height='225' fill='%23111a24'/><g fill='none' stroke='%238a7bff' stroke-opacity='.7' stroke-width='2'><path d='M120 150 Q130 70 210 62 Q300 56 300 130 Q300 180 220 180 Q150 180 120 150'/><path d='M160 120 Q190 100 220 120'/><path d='M170 150 Q200 135 235 150'/></g><g fill='%233ef2a3'><circle cx='120' cy='150' r='5'/><circle cx='210' cy='62' r='5'/><circle cx='300' cy='130' r='5'/><circle cx='220' cy='180' r='5'/></g><g stroke='%233ef2a3' stroke-opacity='.3' stroke-width='1'><path d='M120 150 L340 60M300 130 L350 190'/></g></svg>
+          <span class="tag">原理解读</span><span class="dur">18:05</span>
+        </div>
+        <div class="vbody">
+          <h3>为什么「停一下」比「再撑住」更有效</h3>
+          <p>从行为心理与神经调节角度，解释节奏控制在自我调节中的作用机制，含 4 组参考研究。</p>
+          <div class="vmeta"><span class="avatar" style="background:#8a7bff">研</span><span>研究组·何博士</span><span>·</span><span>22.1 万播放</span></div>
+          <div class="vfoot">
+            <button class="act" data-like><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1zM7 10l4-7a2 2 0 0 1 3 1.6V9h5.2a2 2 0 0 1 2 2.3l-1.3 7A2 2 0 0 1 18 20H7"/></svg><span class="n">3,190</span></button>
+            <button class="act" data-fav><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.6-7-9.5A4 4 0 0 1 12 7a4 4 0 0 1 7 3.5C19 15.4 12 20 12 20z"/></svg>收藏</button>
+            <button class="act" data-share><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.6l6.8-4.2M8.6 13.4l6.8 4.2"/></svg>分享</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="vcard" data-cat="life">
+        <div class="cover">
+          <img alt="视频封面：生活应用，办公桌一角的绿植与水杯计时器" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='225' viewBox='0 0 400 225'><rect width='400' height='225' fill='%23152018'/><rect x='60' y='140' width='280' height='10' rx='5' fill='%233b4a3a'/><g><path d='M120 140 Q112 96 138 78 Q158 100 148 140z' fill='%233ef2a3' fill-opacity='.7'/><path d='M150 140 Q160 108 182 100 Q188 128 172 140z' fill='%233ef2a3' fill-opacity='.45'/></g><circle cx='286' cy='106' r='32' fill='none' stroke='%23ffb454' stroke-width='3'/><path d='M286 106V84' stroke='%23ffb454' stroke-width='3' stroke-linecap='round'/></svg>
+          <span class="tag">生活应用</span><span class="dur">07:48</span>
+        </div>
+        <div class="vbody">
+          <h3>把寸止带进工位：每小时一次的两分钟留白</h3>
+          <p>不用换衣服、不用器材，在工位完成的微型挑战，帮助你在会议之间重新找回注意力。</p>
+          <div class="vmeta"><span class="avatar" style="background:#3ef2a3">苏</span><span>苏木木</span><span>·</span><span>16.4 万播放</span></div>
+          <div class="vfoot">
+            <button class="act" data-like><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1zM7 10l4-7a2 2 0 0 1 3 1.6V9h5.2a2 2 0 0 1 2 2.3l-1.3 7A2 2 0 0 1 18 20H7"/></svg><span class="n">1,468</span></button>
+            <button class="act" data-fav><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.6-7-9.5A4 4 0 0 1 12 7a4 4 0 0 1 7 3.5C19 15.4 12 20 12 20z"/></svg>收藏</button>
+            <button class="act" data-share><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.6l6.8-4.2M8.6 13.4l6.8 4.2"/></svg>分享</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="vcard" data-cat="beginner">
+        <div class="cover">
+          <img alt="视频封面：五分钟热身，橙红渐变的关节活动分解图" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='225' viewBox='0 0 400 225'><rect width='400' height='225' fill='%23221510'/><g stroke='%23ff5a6a' stroke-opacity='.6' stroke-width='3' fill='none'><circle cx='130' cy='112' r='30'/><circle cx='270' cy='112' r='30'/><path d='M160 112 H240' stroke-dasharray='8 8'/></g><g fill='%23ffb454'><circle cx='130' cy='112' r='7'/><circle cx='270' cy='112' r='7'/></g><g stroke='%23ffb454' stroke-opacity='.4' stroke-width='2'><path d='M70 190 H330'/></g></svg>
+          <span class="tag">入门跟练</span><span class="dur">05:12</span>
+        </div>
+        <div class="vbody">
+          <h3>五分钟热身：让身体先愿意配合</h3>
+          <p>很多人失败在开始前的僵持感。这套热身让你用更轻的方式进入状态。</p>
+          <div class="vmeta"><span class="avatar" style="background:#ff5a6a">罗</span><span>罗可乐</span><span>·</span><span>11.9 万播放</span></div>
+          <div class="vfoot">
+            <button class="act" data-like><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1zM7 10l4-7a2 2 0 0 1 3 1.6V9h5.2a2 2 0 0 1 2 2.3l-1.3 7A2 2 0 0 1 18 20H7"/></svg><span class="n">987</span></button>
+            <button class="act" data-fav><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.6-7-9.5A4 4 0 0 1 12 7a4 4 0 0 1 7 3.5C19 15.4 12 20 12 20z"/></svg>收藏</button>
+            <button class="act" data-share><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.6l6.8-4.2M8.6 13.4l6.8 4.2"/></svg>分享</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="vcard" data-cat="story">
+        <div class="cover">
+          <img alt="视频封面：双人挑战赛现场，分屏对决的紫粉光效" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='225' viewBox='0 0 400 225'><rect width='400' height='225' fill='%231c1226'/><rect x='0' y='0' width='196' height='225' fill='%238a7bff' fill-opacity='.16'/><rect x='204' y='0' width='196' height='225' fill='%233ef2a3' fill-opacity='.1'/><path d='M200 0 V225' stroke='%23ffffff' stroke-opacity='.3' stroke-width='2'/><g stroke='%238a7bff' stroke-width='3' fill='none'><path d='M50 160 Q80 90 130 160'/></g><g stroke='%233ef2a3' stroke-width='3' fill='none'><path d='M250 160 Q290 110 340 160'/></g></svg>
+          <span class="tag">真实记录</span><span class="dur">13:27</span>
+        </div>
+        <div class="vbody">
+          <h3>双人挑战：谁先在第六十秒说话</h3>
+          <p>两位创作者的对决实录，镜头记录下笑场、沉默和最后那段意想不到的坦白。</p>
+          <div class="vmeta"><span class="avatar" style="background:#8a7bff">阿</span><span>阿衡与木子</span><span>·</span><span>27.5 万播放</span></div>
+          <div class="vfoot">
+            <button class="act" data-like><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1zM7 10l4-7a2 2 0 0 1 3 1.6V9h5.2a2 2 0 0 1 2 2.3l-1.3 7A2 2 0 0 1 18 20H7"/></svg><span class="n">3,402</span></button>
+            <button class="act" data-fav><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.6-7-9.5A4 4 0 0 1 12 7a4 4 0 0 1 7 3.5C19 15.4 12 20 12 20z"/></svg>收藏</button>
+            <button class="act" data-share><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.6l6.8-4.2M8.6 13.4l6.8 4.2"/></svg>分享</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="vcard" data-cat="advanced">
+        <div class="cover">
+          <img alt="视频封面：高阶专注挑战，暗场中单一光点逐渐收束" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='225' viewBox='0 0 400 225'><rect width='400' height='225' fill='%23070809'/><circle cx='200' cy='112' r='70' fill='%23ffffff' fill-opacity='.02'/><circle cx='200' cy='112' r='40' fill='%23ffffff' fill-opacity='.04'/><circle cx='200' cy='112' r='18' fill='%233ef2a3' fill-opacity='.85'/><g stroke='%23ffffff' stroke-opacity='.18' stroke-width='1'><path d='M0 112 H150M250 112 H400M200 0 V70M200 155 V225'/></g></svg>
+          <span class="tag">进阶挑战</span><span class="dur">20:33</span>
+        </div>
+        <div class="vbody">
+          <h3>无人计时：靠内在节拍完成三分钟静止</h3>
+          <p>撤掉所有外部提示，练习者需要用内在节奏判断时间，误差在 10 秒内即算通过。</p>
+          <div class="vmeta"><span class="avatar" style="background:#3ef2a3">沈</span><span>沈默之</span><span>·</span><span>14.8 万播放</span></div>
+          <div class="vfoot">
+            <button class="act" data-like><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1zM7 10l4-7a2 2 0 0 1 3 1.6V9h5.2a2 2 0 0 1 2 2.3l-1.3 7A2 2 0 0 1 18 20H7"/></svg><span class="n">1,876</span></button>
+            <button class="act" data-fav><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.6-7-9.5A4 4 0 0 1 12 7a4 4 0 0 1 7 3.5C19 15.4 12 20 12 20z"/></svg>收藏</button>
+            <button class="act" data-share><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.6l6.8-4.2M8.6 13.4l6.8 4.2"/></svg>分享</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="vcard" data-cat="life">
+        <div class="cover">
+          <img alt="视频封面：睡前留白练习，夜色中的床灯与呼吸曲线" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='225' viewBox='0 0 400 225'><rect width='400' height='225' fill='%230e1420'/><circle cx='320' cy='58' r='26' fill='%23ffb454' fill-opacity='.28'/><circle cx='320' cy='58' r='11' fill='%23ffb454' fill-opacity='.7'/><g stroke='%2359c7ff' stroke-opacity='.6' stroke-width='2' fill='none'><path d='M0 160 Q40 120 80 160 T160 160 T240 160 T320 160 T400 160'/></g><rect x='40' y='180' width='120' height='8' rx='4' fill='%23ffffff' fill-opacity='.22'/></svg>
+          <span class="tag">生活应用</span><span class="dur">10:05</span>
+        </div>
+        <div class="vbody">
+          <h3>睡前留白：用三分钟结束这一天</h3>
+          <p>一套轻柔的收尾练习，帮助你把白天的紧绷放下，把注意力交还给休息本身。</p>
+          <div class="vmeta"><span class="avatar" style="background:#59c7ff">晴</span><span>晴子夜读</span><span>·</span><span>20.3 万播放</span></div>
+          <div class="vfoot">
+            <button class="act" data-like><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 10v11H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1zM7 10l4-7a2 2 0 0 1 3 1.6V9h5.2a2 2 0 0 1 2 2.3l-1.3 7A2 2 0 0 1 18 20H7"/></svg><span class="n">2,241</span></button>
+            <button class="act" data-fav><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.6-7-9.5A4 4 0 0 1 12 7a4 4 0 0 1 7 3.5C19 15.4 12 20 12 20z"/></svg>收藏</button>
+            <button class="act" data-share><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.6l6.8-4.2M8.6 13.4l6.8 4.2"/></svg>分享</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 专题企划 -->
+<section class="sec-pad" id="topics">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">PROGRAMS · 专题企划</div>
+      <h2>四个正在进行的内容企划</h2>
+      <p>每季度由品牌内容中心策划，联合创作者共同完成，围绕同一主题呈现不同视角的克制练习。</p>
+    </div>
+    <div class="topic-grid">
+      <a class="topic" href="#stream">
+        <img alt="专题封面：节奏控制赛的节拍光带与跑道延展画面" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='300' viewBox='0 0 420 300'><rect width='420' height='300' fill='%23101b2a'/><g stroke='%233ef2a3' stroke-opacity='.6' stroke-width='3' fill='none'><path d='M30 250 L120 250 L150 170 L190 260 L230 190 L270 250 L390 250'/></g><g stroke='%2359c7ff' stroke-opacity='.3' stroke-width='2'><path d='M30 275 H390M30 225 H390'/></g><circle cx='330' cy='100' r='46' fill='none' stroke='%233ef2a3' stroke-width='2' stroke-dasharray='10 8'/></svg>
+        <div class="tp-tag">SEASON 12</div>
+        <h3>节奏控制赛</h3>
+        <p>从 10 秒到 90 秒，四阶段递进挑战，已有 2,180 位练习者提交节奏日志。</p>
+        <div class="tp-foot"><span>更新中 · 第 4 阶段</span><span class="stat-live">报名进行中</span></div>
+      </a>
+      <a class="topic" href="#creators">
+        <img alt="专题封面：匠人手中打磨木料的暖光特写画面" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='300' viewBox='0 0 420 300'><rect width='420' height='300' fill='%23241a10'/><rect x='80' y='160' width='260' height='18' rx='9' fill='%23ffb454' fill-opacity='.5'/><rect x='120' y='120' width='180' height='14' rx='7' fill='%23ffb454' fill-opacity='.3'/><circle cx='210' cy='80' r='40' fill='%23ffb454' fill-opacity='.2'/><g stroke='%23ffb454' stroke-opacity='.5' stroke-width='2' fill='none'><path d='M100 240 Q210 200 320 240'/></g></svg>
+        <div class="tp-tag">CRAFT</div>
+        <h3>匠心一刻</h3>
+        <p>走近手作、修复、篆刻等领域的匠人，看他们如何在慢工里练习停与续。</p>
+        <div class="tp-foot"><span>已上线 6 集</span><span class="stat-live">持续更新</span></div>
+      </a>
+      <a class="topic" href="#about">
+        <img alt="专题封面：城市清晨巷口的蓝灰色调与行人剪影" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='300' viewBox='0 0 420 300'><rect width='420' height='300' fill='%23172028'/><rect x='0' y='180' width='420' height='120' fill='%230d141b'/><g fill='%2359c7ff' fill-opacity='.35'><rect x='40' y='90' width='60' height='110'/><rect x='120' y='60' width='52' height='140'/><rect x='250' y='100' width='70' height='100'/><rect x='340' y='76' width='46' height='124'/></g><path d='M0 220 H420' stroke='%233ef2a3' stroke-opacity='.4' stroke-width='2'/><circle cx='200' cy='214' r='8' fill='%233ef2a3' fill-opacity='.8'/></svg>
+        <div class="tp-tag">CITY</div>
+        <h3>清晨六点的城市</h3>
+        <p>把镜头交给早起的人，记录城市清醒之前的十五分钟，安静而有力量。</p>
+        <div class="tp-foot"><span>征集投稿中</span><span class="stat-live">投票开启</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 创作者矩阵 -->
+<section class="sec-pad" id="creators" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">CREATORS · 创作者矩阵</div>
+      <h2>六位持续输出的认证创作者</h2>
+      <p>他们来自运动、心理、影像、生活不同的方向，但都在用自己的方式探索「控制节奏」这件事。</p>
+    </div>
+    <div class="creators">
+      <article class="creator">
+        <div class="cr-top">
+          <div class="cr-ava" style="background:linear-gradient(135deg,#3ef2a3,#59c7ff)">林</div>
+          <div><h3>林知节</h3><div class="cr-role">节奏训练 / 入门教学</div></div>
+        </div>
+        <p>前田径队节奏教练，擅长把复杂的呼吸控制拆成普通人能上手的动作。她的入门系列已被 40 万人跟练。</p>
+        <div class="cr-stats"><div><b>186</b>作品</div><div><b>52.4 万</b>粉丝</div><div><b>9.6</b>口碑</div></div>
+        <div class="cr-more"><button class="btn btn-ghost" data-creator="林知节">作者档案</button><button class="btn btn-ghost" data-follow>关注</button></div>
+      </article>
+      <article class="creator">
+        <div class="cr-top">
+          <div class="cr-ava" style="background:linear-gradient(135deg,#8a7bff,#59c7ff)">何</div>
+          <div><h3>研究组·何博士</h3><div class="cr-role">行为心理 / 知识科普</div></div>
+        </div>
+        <p>行为心理学研究者，长期关注自我调节与注意力机制。他的内容以严谨著称，每期都会列出参考来源。</p>
+        <div class="cr-stats"><div><b>94</b>作品</div><div><b>38.7 万</b>粉丝</div><div><b>9.8</b>口碑</div></div>
+        <div class="cr-more"><button class="btn btn-ghost" data-creator="研究组·何博士">作者档案</button><button class="btn btn-ghost" data-follow>关注</button></div>
+      </article>
+      <article class="creator">
+        <div class="cr-top">
+          <div class="cr-ava" style="background:linear-gradient(135deg,#ffb454,#ff5a6a)">周</div>
+          <div><h3>周小满</h3><div class="cr-role">真实记录 / 情绪故事</div></div>
+        </div>
+        <p>记录型创作者，用镜头记下自己与焦虑共处的日常。她的视频里没有完美答案，只有真实的第几天。</p>
+        <div class="cr-stats"><div><b>212</b>作品</div><div><b>61.2 万</b>粉丝</div><div><b>9.4</b>口碑</div></div>
+        <div class="cr-more"><button class="btn btn-ghost" data-creator="周小满">作者档案</button><button class="btn btn-ghost" data-follow>关注</button></div>
+      </article>
+      <article class="creator">
+        <div class="cr-top">
+          <div class="cr-ava" style="background:linear-gradient(135deg,#59c7ff,#3ef2a3)">陈</div>
+          <div><h3>陈一停</h3><div class="cr-role">进阶挑战 / 长时段训练</div></div>
+        </div>
+        <p>专注高强度进阶挑战，最擅长把「坚持不住」变成可拆解的阶段目标。他的 90 秒系列是社区口碑之作。</p>
+        <div class="cr-stats"><div><b>143</b>作品</div><div><b>44.9 万</b>粉丝</div><div><b>9.5</b>口碑</div></div>
+        <div class="cr-more"><button class="btn btn-ghost" data-creator="陈一停">作者档案</button><button class="btn btn-ghost" data-follow>关注</button></div>
+      </article>
+      <article class="creator">
+        <div class="cr-top">
+          <div class="cr-ava" style="background:linear-gradient(135deg,#3ef2a3,#ffb454)">苏</div>
+          <div><h3>苏木木</h3><div class="cr-role">生活方式 / 工位练习</div></div>
+        </div>
+        <p>把练习搬进办公室与通勤路上，主张「不必换环境也能开始」。她的两分钟留白系列被大量转发。</p>
+        <div class="cr-stats"><div><b>167</b>作品</div><div><b>33.5 万</b>粉丝</div><div><b>9.3</b>口碑</div></div>
+        <div class="cr-more"><button class="btn btn-ghost" data-creator="苏木木">作者档案</button><button class="btn btn-ghost" data-follow>关注</button></div>
+      </article>
+      <article class="creator">
+        <div class="cr-top">
+          <div class="cr-ava" style="background:linear-gradient(135deg,#ff5a6a,#8a7bff)">阿</div>
+          <div><h3>阿衡与木子</h3><div class="cr-role">双人挑战 / 互动实验</div></div>
+        </div>
+        <p>一对长期搭档的创作者，用双人挑战的形式测试沉默、对视与默契，把练习做成有笑点的观察实验。</p>
+        <div class="cr-stats"><div><b>121</b>作品</div><div><b>29.8 万</b>粉丝</div><div><b>9.2</b>口碑</div></div>
+        <div class="cr-more"><button class="btn btn-ghost" data-creator="阿衡与木子">作者档案</button><button class="btn btn-ghost" data-follow>关注</button></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 排行榜 -->
+<section class="sec-pad" id="rank">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">RANKING · 数据榜单</div>
+      <h2>热度与口碑双榜</h2>
+      <p>榜单由播放完成度、收藏率、评论质量三项加权计算，每周一更新，反映社区真实的练习反馈。</p>
+    </div>
+    <div class="rank-wrap">
+      <div class="rank">
+        <h3><span class="rk-dot"></span>本周热度榜</h3>
+        <ol>
+          <li><span class="no">1</span><span class="rn">焦虑第 47 天：我把挣扎拍成了素材</span><span class="rv">31.8 万</span></li>
+          <li><span class="no">2</span><span class="rn">双人挑战：谁先在第六十秒说话</span><span class="rv">27.5 万</span></li>
+          <li><span class="no">3</span><span class="rn">静止九十秒：不靠意志力的收束训练</span><span class="rv">25.6 万</span></li>
+          <li><span class="no">4</span><span class="rn">为什么「停一下」比「再撑住」更有效</span><span class="rv">22.1 万</span></li>
+          <li><span class="no">5</span><span class="rn">睡前留白：用三分钟结束这一天</span><span class="rv">20.3 万</span></li>
+        </ol>
+      </div>
+      <div class="rank">
+        <h3><span class="rk-dot" style="background:var(--acc2)"></span>口碑推荐榜</h3>
+        <ol>
+          <li><span class="no">1</span><span class="rn">研究组·何博士 · 自我调节机制解读</span><span class="rv">9.8 分</span></li>
+          <li><span class="no">2</span><span class="rn">林知节 · 三档节奏入门课</span><span class="rv">9.6 分</span></li>
+          <li><span class="no">3</span><span class="rn">陈一停 · 九十秒阶段拆解</span><span class="rv">9.5 分</span></li>
+          <li><span class="no">4</span><span class="rn">周小满 · 连续记录方法论</span><span class="rv">9.4 分</span></li>
+          <li><span class="no">5</span><span class="rn">苏木木 · 工位微练习合集</span><span class="rv">9.3 分</span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 随笔 / 故事 -->
+<section class="sec-pad" id="notes" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">JOURNAL · 影像随笔</div>
+      <h2>三篇来自社区的练习手记</h2>
+      <p>不是教程，也不是结论，只是练习过程中一些真实的片段，写下来给自己，也分享给同样在路上的人。</p>
+    </div>
+    <div class="notes">
+      <div class="note">
+        <div class="nt">DAY 12 · 失败也算数据</div>
+        <h3>第十秒放弃了，然后我记了一笔</h3>
+        <p>那天加班到十点，回家只想躺着。我还是坐了十分钟，结果第七秒就分心了。以前会觉得这算白练，现在我把分心的原因写进日志：晚饭太晚、手机在响、房间灯太亮。原来「寸止」不只是坚持，也包括诚实地承认哪一步没接住。</p>
+      </div>
+      <div class="note">
+        <div class="nt">DAY 34 · 呼吸成为了节拍</div>
+        <h3>身体先学会，脑子才慢慢相信</h3>
+        <p>连续练习一个多月后，最明显的变化发生在开会时。以前心一急就想立刻说话，现在会先呼吸一次。那一次呼吸其实只有两秒，但足够让我想清楚要不要开口。教练说这就是节奏感搬进了生活，我一开始不信，后来发现确实是。</p>
+      </div>
+      <div class="note">
+        <div class="nt">DAY 61 · 双人练习</div>
+        <h3>和朋友一起练，会有效但也会笑场</h3>
+        <p>我们约好每天晚上视频十分钟，各自做静止练习，谁也不说话。第一周几乎每天都在笑场，第二周才开始安静下来。最有意思的是，结束之后那段随意的聊天，反而成了我一天里最放松的时刻。陪伴这件事，好像不需要太多设计。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 用户评价 -->
+<section class="sec-pad" id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">VOICES · 用户评价</div>
+      <h2>他们怎么说这个社区</h2>
+      <p>来自不同阶段练习者的真实反馈，有鼓励也有建议，我们照单全收。</p>
+    </div>
+    <div class="reviews">
+      <div class="review">
+        <p>之前试过很多自律打卡，基本都是三分钟热度。这里的节奏数据记录让我第一次看到自己的进步曲线，那种「原来我真的在变好」的感觉很具体。</p>
+        <div class="rv-user"><span class="avatar" style="background:var(--acc)">阿</span><div><b>阿澈不吃香菜</b><span class="stars">★★★★★</span></div></div>
+      </div>
+      <div class="review">
+        <p>内容质量整体很高，尤其是何博士的解读系列，讲得比很多科普号扎实。唯一想吐槽的是进阶内容更新有点慢，希望多一些长时段挑战。</p>
+        <div class="rv-user"><span class="avatar" style="background:var(--acc2)">左</span><div><b>左手边的猫</b><span class="stars">★★★★☆</span></div></div>
+      </div>
+      <div class="review">
+        <p>我是被朋友拉进来的，本来以为又是一个玩概念的社区。结果第一节课就让我意识到，原来专注力真的可以像肌肉一样被训练，现在每天睡前都会练三分钟。</p>
+        <div class="rv-user"><span class="avatar" style="background:var(--warm)">大</span><div><b>大橙子小姐</b><span class="stars">★★★★★</span></div></div>
+      </div>
+      <div class="review">
+        <p>移动端看视频很顺畅，清晰度也够。投稿入口的位置稍微有点深，第一次找了好一会儿，如果能放在显眼一点的地方会更好。</p>
+        <div class="rv-user"><span class="avatar" style="background:#8a7bff">一</span><div><b>一页纸的念</b><span class="stars">★★★★☆</span></div></div>
+      </div>
+      <div class="review">
+        <p>做产品经理的，工作节奏特别乱。这个社区的工位微练习系列救了我，两分钟就能做，不需要换衣服也不需要器械，现在每小时提醒一次。</p>
+        <div class="rv-user"><span class="avatar" style="background:#ff5a6a">K</span><div><b>K先生在路上</b><span class="stars">★★★★★</span></div></div>
+      </div>
+      <div class="review">
+        <p>社区氛围挺好的，评论区很少吵架，大家都在分享自己的天数和卡点。作为一个常年潜水的人，我第一次想认真留下自己的记录。</p>
+        <div class="rv-user"><span class="avatar" style="background:#3ef2a3">沉</span><div><b>沉默的第七天</b><span class="stars">★★★★★</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 品牌故事 -->
+<section class="sec-pad" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-visual">
+        <img alt="品牌故事配图：一间安静的练习室内，木质地板上放着计时器与记录本" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='620' height='465' viewBox='0 0 620 465'><defs><linearGradient id='a1' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23151d26'/><stop offset='1' stop-color='%231f2a24'/></linearGradient></defs><rect width='620' height='465' fill='url(%23a1)'/><rect x='0' y='330' width='620' height='135' fill='%230d1319'/><g stroke='%23ffffff' stroke-opacity='.08' stroke-width='1'><path d='M0 330 H620M0 380 H620M0 430 H620M120 330 V465M300 330 V465M470 330 V465'/></g><rect x='150' y='240' width='180' height='96' rx='6' fill='%23e8edf4' fill-opacity='.14' transform='skewX(-12)'/><circle cx='440' cy='276' r='42' fill='none' stroke='%233ef2a3' stroke-width='4'/><path d='M440 276V246' stroke='%233ef2a3' stroke-width='4' stroke-linecap='round'/><path d='M440 276l22 16' stroke='%23ffb454' stroke-width='4' stroke-linecap='round'/><circle cx='440' cy='276' r='5' fill='%233ef2a3'/><rect x='0' y='0' width='620' height='465' fill='%233ef2a3' fill-opacity='.03'/></svg>
+      </div>
+      <div class="about-txt">
+        <div class="sec-kicker">BRAND STORY · 品牌故事</div>
+        <h2>我们想做的，是一个愿意让人慢下来的视频品牌</h2>
+        <p>寸止挑战创立于 2019 年，最初只是几位教练与影像创作者的一次小规模实验：如果把「控制节奏」这件事拍成可以跟练的视频，会不会有人愿意一起试。五年过去，这个网站已经成为我们与六十多万练习者共同运营的内容社区。</p>
+        <p>作为垂直领域的原创视频品牌，我们坚持三件事：不夸大效果、不贩卖焦虑、不为了时长注水。每一条官方发布的内容都经过动作安全复核与理论校对，我们希望每个点进来的人，都能得到值得信赖的信息。</p>
+        <div class="about-points">
+          <div class="apoint"><span class="ic">1</span><div><b>原创与正版</b>　全部官方内容由品牌内容中心自主制作，版权清晰，可追溯来源。</div></div>
+          <div class="apoint"><span class="ic">2</span><div><b>专业与克制</b>　与运动、心理、康复领域顾问长期合作，内容不越界、不承诺。</div></div>
+          <div class="apoint"><span class="ic">3</span><div><b>社区与陪伴</b>　创作者与用户共同构成内容生态，每一次记录都被看见。</div></div>
+          <div class="apoint"><span class="ic">4</span><div><b>创新与多元</b>　持续尝试访谈、纪录、互动挑战等多种影像表达方式。</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 企业动态 + 合作品牌 -->
+<section class="sec-pad" id="news" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">NEWS · 企业动态</div>
+      <h2>官方发布与内容更新</h2>
+      <p>关于平台功能、内容企划与合作进展的公开信息，均在此处同步发布。</p>
+    </div>
+    <div class="news">
+      <div class="news-item">
+        <div class="news-date"><b>12</b><span>6月</span></div>
+        <div><h3>「寸止挑战·第12季」正式开启报名</h3><p>本季新增四个难度阶段与团队赛模式，报名通道将持续开放至月底，个人与三人小组均可参与。</p></div>
+      </div>
+      <div class="news-item">
+        <div class="news-date"><b>08</b><span>6月</span></div>
+        <div><h3>《三十秒呼吸法》跟练版上线</h3><p>由林知节与康复顾问共同录制，新增分镜提示与节拍音轨，适合零基础练习者反复跟练。</p></div>
+      </div>
+      <div class="news-item">
+        <div class="news-date"><b>02</b><span>6月</span></div>
+        <div><h3>创作者激励计划第二期启动</h3><p>面向记录型与教学型创作者，提供制作支持与流量扶持，首期已有 86 位创作者完成签约。</p></div>
+      </div>
+      <div class="news-item">
+        <div class="news-date"><b>27</b><span>5月</span></div>
+        <div><h3>平台新增节奏日志与数据看板</h3><p>用户可记录每次练习的时长、卡点与感受，系统将生成个人节奏曲线，帮助长期复盘。</p></div>
+      </div>
+    </div>
+
+    <div style="margin-top:46px">
+      <div class="sec-head" style="margin-bottom:24px">
+        <div class="sec-kicker">PARTNERS · 合作品牌</div>
+        <h2 style="font-size:21px">与我们同行的伙伴</h2>
+      </div>
+      <div class="partners">
+        <div class="partner">静观运动</div>
+        <div class="partner">呼吸研究所</div>
+        <div class="partner">木与光影像</div>
+        <div class="partner">晨间计划</div>
+        <div class="partner">慢下文化</div>
+        <div class="partner">节奏实验室</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec-pad" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">FAQ · 帮助中心</div>
+      <h2>常见问题</h2>
+      <p>关于练习方法、内容投稿与账号使用的常见疑问，这里有我们最直接的回答。</p>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>完全没有基础，可以参与寸止挑战吗？</summary>
+        <p>可以。我们把入门路径设计为 10 秒起步，配合热身与呼吸引导，不需要任何器械。建议先看林知节的「第一次寸止挑战」系列，按顺序完成三档关卡，再进入进阶内容。</p>
+      </details>
+      <details>
+        <summary>练习时出现不适应该怎么办？</summary>
+        <p>请立即停止并恢复正常呼吸。寸止挑战的内容以轻度自我调节为主，任何情况下都不建议硬扛。如有慢性疾病、心血管问题或处于孕期，请先咨询专业医生后再决定是否参与。</p>
+      </details>
+      <details>
+        <summary>如何成为认证创作者？</summary>
+        <p>在投稿入口提交至少三条原创内容，并填写擅长的方向与更新计划。内容团队会在五个工作日内反馈，通过后即可获得认证标识与创作者激励计划的申请资格。</p>
+      </details>
+      <details>
+        <summary>平台内容是否全部为原创与正版？</summary>
+        <p>官方发布的内容均为品牌内容中心自主制作或已获得明确授权。用户投稿需保证原创，若涉及第三方素材需提供授权说明，我们会对涉嫌侵权的内容进行下架处理。</p>
+      </details>
+      <details>
+        <summary>节奏日志的数据会公开吗？</summary>
+        <p>默认仅自己可见。你可以选择将某一次记录的摘要分享到社区，分享内容不包含具体时间、心率等敏感数据，仅呈现时长与主观感受。</p>
+      </details>
+      <details>
+        <summary>可以转载站内视频吗？</summary>
+        <p>欢迎在注明出处并保留原链接的前提下进行非商业分享。商业用途或二次剪辑需提前联系品牌合作邮箱获取书面授权，我们通常会在三个工作日内回复。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 联系 / 投稿 -->
+<section class="sec-pad" id="contact" style="background:var(--bg2);border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">CONTACT · 联系我们</div>
+      <h2>投稿、合作与反馈</h2>
+      <p>无论你是想提交作品、洽谈品牌合作，还是对平台有任何建议，都可以通过以下方式找到我们。</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>官方联系渠道</h3>
+        <p>品牌内容中心与创作者运营团队工作日 10:00–19:00 在线，节假日顺延。建议在邮件中附上作品链接与简要说明，便于我们更快响应。</p>
+        <div class="contact-rows">
+          <div class="crow"><span>品牌合作</span><b>brand@cunzhi-challenge.example</b></div>
+          <div class="crow"><span>内容投稿</span><b>submit@cunzhi-challenge.example</b></div>
+          <div class="crow"><span>媒体与采访</span><b>press@cunzhi-challenge.example</b></div>
+          <div class="crow"><span>用户支持</span><b>help@cunzhi-challenge.example</b></div>
+          <div class="crow"><span>办公地址</span><b>创意园区 B 座 7 层内容中心</b></div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap">
+          <button class="btn btn-primary" id="submitBtn2">立即投稿</button>
+          <button class="btn btn-ghost" data-share>分享本站</button>
+          <button class="btn btn-ghost" id="copyBtn">复制联系邮箱</button>
+        </div>
+      </div>
+      <div>
+        <form class="form-side" id="feedbackForm">
+          <input type="text" placeholder="你的称呼" aria-label="你的称呼" required>
+          <input type="email" placeholder="联系邮箱" aria-label="联系邮箱" required>
+          <textarea rows="5" placeholder="想对我们说的话、投稿简介或合作意向" aria-label="留言内容" required></textarea>
+          <button class="btn btn-primary" type="submit">提交反馈</button>
+          <p style="font-size:12px;color:var(--sub);line-height:1.7">提交即表示你同意我们通过所留邮箱与你联系。我们不会将你的信息用于其他用途。</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="#top">
+          <span class="logo-mark">寸</span>
+          <span class="logo-txt"><strong>寸止挑战</strong><span>CUNZHI CHALLENGE</span></span>
+        </a>
+        <p>寸止挑战官方网站 · 专注节奏控制与自控力训练的原创视频品牌。深耕垂直领域五年，与六十万练习者共同构建高品质内容生态，持续运营，值得信赖。</p>
+      </div>
+      <div class="fcol">
+        <h4>内容</h4>
+        <a href="#focus">焦点内容</a>
+        <a href="#stream">挑战视频</a>
+        <a href="#topics">专题企划</a>
+        <a href="#rank">数据榜单</a>
+      </div>
+      <div class="fcol">
+        <h4>社区</h4>
+        <a href="#creators">创作者矩阵</a>
+        <a href="#notes">影像随笔</a>
+        <a href="#reviews">用户评价</a>
+        <a href="#contact">投稿入口</a>
+      </div>
+      <div class="fcol">
+        <h4>关于</h4>
+        <a href="#about">品牌故事</a>
+        <a href="#news">企业动态</a>
+        <a href="#faq">帮助中心</a>
+        <a href="#contact">联系我们</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2019–2024 寸止挑战 官方网站 · 版权所有 · 持续运营中</div>
+      <div><a href="#top">内容协议</a> · <a href="#top">隐私说明</a> · 备案号占位：某某备 00000000 号</div>
+    </div>
+  </div>
+</footer>
+
+<button id="toTop" aria-label="回到顶部">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<div id="toast"></div>
+
+<!-- 分享模态 -->
+<div class="modal-mask" id="shareModal">
+  <div class="modal">
+    <button class="modal-close" data-close>×</button>
+    <h3>分享给同好</h3>
+    <div class="m-sub">把这个挑战分享出去，也许有人正需要它。</div>
+    <div class="share-row">
+      <button data-copy><span class="si">链</span>复制链接</button>
+      <button data-share-tip="微信"><span class="si">微</span>微信</button>
+      <button data-share-tip="微博"><span class="si">博</span>微博</button>
+      <button data-share-tip="QQ"><span class="si">Q</span>QQ</button>
+    </div>
+  </div>
+</div>
+
+<!-- 投稿模态 -->
+<div class="modal-mask" id="submitModal">
+  <div class="modal">
+    <button class="modal-close" data-close>×</button>
+    <h3>投稿入口</h3>
+    <div class="m-sub">提交你的原创挑战视频，通过审核后将进入社区内容流。</div>
+    <form class="form-side" id="submitForm">
+      <input type="text" placeholder="作品标题" aria-label="作品标题" required>
+      <input type="text" placeholder="创作者昵称" aria-label="创作者昵称" required>
+      <textarea rows="4" placeholder="作品简介：挑战类型、时长、想分享的体会" aria-label="作品简介" required></textarea>
+      <button class="btn btn-primary" type="submit">提交作品</button>
+    </form>
+  </div>
+</div>
+
+<!-- 作者档案模态 -->
+<div class="modal-mask" id="creatorModal">
+  <div class="modal">
+    <button class="modal-close" data-close>×</button>
+    <h3 id="cmName">创作者档案</h3>
+    <div class="m-sub" id="cmRole">认证创作者</div>
+    <p id="cmDesc" style="font-size:13.5px;color:var(--sub);line-height:1.85"></p>
+    <div style="display:flex;gap:10px;margin-top:20px">
+      <button class="btn btn-primary" data-follow>关注创作者</button>
+      <button class="btn btn-ghost" data-close>关闭</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var toastEl = document.getElementById('toast');
+  var toastTimer = null;
+  function toast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, 2200);
+  }
+
+  /* 移动端导航 */
+  var burger = document.getElementById('burger');
+  var mobileNav = document.getElementById('mobileNav');
+  burger.addEventListener('click', function(){
+    mobileNav.classList.toggle('show');
+  });
+  mobileNav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ mobileNav.classList.remove('show'); });
+  });
+
+  /* 搜索反馈 */
+  var searchInput = document.getElementById('searchInput');
+  var mSearch = document.getElementById('mSearch');
+  var mSearchBtn = document.getElementById('mSearchBtn');
+  function doSearch(val){
+    var q = (val || '').trim();
+    if(!q){ toast('请输入想搜索的关键词'); return; }
+    var found = [];
+    document.querySelectorAll('#streamGrid .vcard').forEach(function(card){
+      var t = card.querySelector('h3').textContent;
+      if(t.indexOf(q) > -1){ found.push(t); }
+    });
+    if(found.length){
+      toast('找到 ' + found.length + ' 条相关内容：' + found[0]);
+      document.getElementById('stream').scrollIntoView({behavior:'smooth'});
+    } else {
+      toast('暂未找到「' + q + '」相关内容，试试「节奏」「呼吸」「入门」');
+    }
+  }
+  searchInput.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ doSearch(searchInput.value); }
+  });
+  mSearchBtn.addEventListener('click', function(){ doSearch(mSearch.value); mobileNav.classList.remove('show'); });
+  mSearch.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ doSearch(mSearch.value); mobileNav.classList.remove('show'); }
+  });
+
+  /* 点赞 / 收藏 / 分享 */
+  document.addEventListener('click', function(e){
+    var likeBtn = e.target.closest('[data-like]');
+    if(likeBtn){
+      var nEl = likeBtn.querySelector('.n');
+      var num = parseInt(nEl.textContent.replace(/,/g,''), 10) || 0;
+      if(likeBtn.classList.toggle('on')){ num += 1; toast('已点赞，感谢支持'); }
+      else { num = Math.max(0, num - 1); toast('已取消点赞'); }
+      nEl.textContent = num.toLocaleString('en-US');
+      return;
+    }
+    var favBtn = e.target.closest('[data-fav]');
+    if(favBtn){
+      if(favBtn.classList.toggle('on')){
+        favBtn.querySelector('svg').setAttribute('fill','currentColor');
+        toast('已加入收藏');
+      } else {
+        favBtn.querySelector('svg').setAttribute('fill','none');
+        toast('已取消收藏');
+      }
+      return;
+    }
+    var shareBtn = e.target.closest('[data-share]');
+    if(shareBtn){ document.getElementById('shareModal').classList.add('show'); return; }
+
+    var copyBtn = e.target.closest('[data-copy]');
+    if(copyBtn){ copyLink(); return; }
+
+    var tipBtn = e.target.closest('[data-share-tip]');
+    if(tipBtn){ toast('已生成' + tipBtn.getAttribute('data-share-tip') + '分享卡片，请粘贴发送'); return; }
+
+    var closeBtn = e.target.closest('[data-close]');
+    if(closeBtn){ closeBtn.closest('.modal-mask').classList.remove('show'); return; }
+
+    var followBtn = e.target.closest('[data-follow]');
+    if(followBtn){
+      if(followBtn.textContent === '关注'){ followBtn.textContent = '已关注'; toast('关注成功，将接收其更新提醒'); }
+      else { followBtn.textContent = '关注'; toast('已取消关注'); }
+      return;
+    }
+
+    var creatorBtn = e.target.closest('[data-creator]');
+    if(creatorBtn){
+      var name = creatorBtn.getAttribute('data-creator');
+      var map = {
+        '林知节':['节奏训练 / 入门教学','前田径队节奏教练，专注把呼吸控制拆解为可执行动作。代表作《第一次寸止挑战》三档关卡系列，累计跟练超 40 万次。'],
+        '研究组·何博士':['行为心理 / 知识科普','行为心理学研究者，关注自我调节与注意力机制。内容严谨，每期附参考来源，社区口碑评分 9.8。'],
+        '周小满':['真实记录 / 情绪故事','记录型创作者，用镜头记录与焦虑共处的日常。代表作《焦虑第 47 天》以真实细节获得大量共鸣。'],
+        '陈一停':['进阶挑战 / 长时段训练','擅长把高强度挑战拆成阶段目标，90 秒系列被社区称为最实用的进阶指南。'],
+        '苏木木':['生活方式 / 工位练习','主张不必换环境也能开始，工位微练习与两分钟留白系列被广泛转发。'],
+        '阿衡与木子':['双人挑战 / 互动实验','长期搭档的创作者，用双人挑战测试沉默、对视与默契，把练习做成有笑点的观察实验。']
+      };
+      var info = map[name] || ['认证创作者','持续输出原创内容。'];
+      document.getElementById('cmName').textContent = name;
+      document.getElementById('cmRole').textContent = info[0] + ' · 认证创作者';
+      document.getElementById('cmDesc').textContent = info[1];
+      document.getElementById('creatorModal').classList.add('show');
+      return;
+    }
+  });
+
+  /* 点击遮罩关闭 */
+  document.querySelectorAll('.modal-mask').forEach(function(mask){
+    mask.addEventListener('click', function(e){
+      if(e.target === mask){ mask.classList.remove('show'); }
+    });
+  });
+
+  /* 复制链接 */
+  function copyLink(){
+    var text = '寸止挑战 · 专注节奏控制与自控力训练的原创视频社区';
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ toast('链接已复制'); }).catch(function(){ toast('复制失败，请手动分享'); });
+    } else {
+      toast('已生成分享文本，请自行复制');
+    }
+  }
+  document.getElementById('copyBtn').addEventListener('click', function(){
+    var mail = 'submit@cunzhi-challenge.example';
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(mail).then(function(){ toast('邮箱已复制：' + mail); }).catch(function(){ toast('复制失败，请手动记录邮箱'); });
+    } else { toast('联系邮箱：' + mail); }
+  });
+
+  /* 投稿 */
+  var submitModal = document.getElementById('submitModal');
+  document.getElementById('submitBtn').addEventListener('click', function(){ submitModal.classList.add('show'); });
+  document.getElementById('submitBtn2').addEventListener('click', function(){ submitModal.classList.add('show'); });
+  document.getElementById('submitForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    submitModal.classList.remove('show');
+    this.reset();
+    toast('作品已提交，审核结果将在五个工作日内通知');
+  });
+  document.getElementById('feedbackForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    this.reset();
+    toast('反馈已收到，感谢你的建议');
+  });
+
+  /* 标签筛选 */
+  var chips = document.querySelectorAll('#filters .chip');
+  var cards = document.querySelectorAll('#streamGrid .vcard');
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.classList.remove('active'); });
+      chip.classList.add('active');
+      var cat = chip.getAttribute('data-cat');
+      cards.forEach(function(card){
+        var show = (cat === 'all' || card.getAttribute('data-cat') === cat);
+        card.style.display = show ? '' : 'none';
+      });
+      toast('已筛选：' + chip.textContent);
+    });
+  });
+
+  /* 回顶 */
+  var toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 560){ toTop.classList.add('show'); } else { toTop.classList.remove('show'); }
+  }, {passive:true});
+  toTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* 数字滚动 */
+  var counted = false;
+  function runCount(){
+    if(counted) return;
+    counted = true;
+    document.querySelectorAll('[data-count]').forEach(function(el){
+      var target = parseInt(el.getAttribute('data-count'), 10);
+      var cur = 0;
+      var step = Math.max(1, Math.round(target / 48));
+      var timer = setInterval(function(){
+        cur += step;
+        if(cur >= target){ cur = target; clearInterval(timer); }
+        el.textContent = cur.toLocaleString('en-US');
+      }, 26);
+    });
+  }
+  var heroStats = document.querySelector('.hero-stats');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ runCount(); io.disconnect(); } });
+    }, {threshold:.4});
+    io.observe(heroStats);
+  } else {
+    runCount();
+  }
+
+  /* 导航高亮 */
+  var sections = ['top','focus','stream','topics','creators','rank','about','news','faq','contact'];
+  window.addEventListener('scroll', function(){
+    var pos = window.scrollY + 160;
+    var current = 'top';
+    sections.forEach(function(id){
+      var el = document.getElementById(id);
+      if(el && el.offsetTop <= pos){ current = id; }
+    });
+    document.querySelectorAll('nav.main a').forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }, {passive:true});
+})();
+</script>
+</body>
+                                            </html>
